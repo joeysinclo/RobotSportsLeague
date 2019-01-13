@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script type="text/javascript" src="../js/buttons.js"></script>
 </head>
 <body>
     <div class="top_nav">
         <a href="home.html" id="home" class="active">Home</a>
         <a href="#about.html" id="about">About</a>
-        <a href="#robotTeam.html" id="robotTeam">Robot Teams</a>
+        <a href="robotTeam.html" id="robotTeam">Robot Teams</a>
         <a href="#robotTeammates.html" id="robotTeammates">Robot Teammates</a>
     </div>
 
@@ -26,7 +27,7 @@
     </div>
 
     <div class="homepage_buttons">
-        <button id="createTeamButton" class="button" onclick="#robotTeam.html">Create Team</button>
+        <button id="createTeamButton" class="button" onclick="navigateToRobotTeamPage()">Create Team</button>
         <button id="modifyTeamButton" class="button" onclick="#robotTeam.html">Modify Team</button>
     </div>
 
