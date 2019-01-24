@@ -1,10 +1,22 @@
 /*
+* Area
+*/
+
+.body_area {
+  text-align: center;
+}
+
+/*
 * Top navigation
 */
+.top_nav_border {
+  background-color: #20314c;
+}
 
 .top_nav {
   background-color: #333;
   overflow: hidden;
+  border: 10px solid #20314c;
 }
 
 .top_nav a {
@@ -70,3 +82,7 @@
 /*
 * Footer
 */
+
+.footer {
+  border-bottom: 5px solid #20314c;
+}

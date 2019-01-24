@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script type="text/javascript" src="../js/buttons.js"></script>
+</head>
+<body>
+    <div class="body_area">
+        <div class="top_nav">
+            <a href="home.html" id="home" class="active">Home</a>
+            <a href="about.html" id="about">About</a>
+            <a href="robotTeam.html" id="robotTeam">Robot Teams</a>
+            <a href="robotTeammates.html" id="robotTeammates">Robot Teammates</a>
+        </div>
+
+        <header id="homepage_header" class="header">
+            <h1>Welcome to Robot Sports League</h1>
+        </header>
+        <div id="homepage_body" class="body">
+            <p>This interface will allow you to create your team of robots!
+            <br>
+                If you already have a team, feel free to tweak and refine your team as needed.
+            <br><br>
+                To get started, click below.
+            </p>
+        </div>
+
+        <div class="homepage_buttons">
+            <button id="createTeamButton" class="button" onclick="navigateToRobotTeamPage()">Create Team</button>
+            <button id="modifyTeamButton" class="button" onclick="navigateToRobotTeammatesPage()">Modify Team</button>
+        </div>
+
+        <footer id="homepage_footer" class="footer">
+            <p>Jordan Sinclair, &copy;2019 </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -6,13 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="maven-artifact" />
         <module name="RobotSportsLeagueWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="maven-artifact" target="1.5" />
-      <module name="RobotSportsLeagueWeb" target="1.5" />
+      <module name="maven-artifact" target="6" />
+      <module name="RobotSportsLeagueWeb" target="6" />
     </bytecodeTargetLevel>
   </component>
 </project>
