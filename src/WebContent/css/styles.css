@@ -1,12 +1,4 @@
 /*
-* Area
-*/
-
-.body_area {
-  text-align: center;
-}
-
-/*
 * Top navigation
 */
 .top_nav_border {
@@ -48,6 +40,10 @@
 /*
 * Body
 */
+.body_area {
+  text-align: center;
+}
+
 .body {
 
 }
@@ -85,4 +81,67 @@
 
 .footer {
   border-bottom: 5px solid #20314c;
+}
+
+/*
+* Tables
+*/
+
+table.robotTeamTable {
+  margin-left: auto; margin-right: auto;
+  border-collapse: collapse;
+  padding: 12px;
+  border-style: hidden;
+}
+
+table.robotTeamTable th {
+  background-color: #20314c;
+  text-align: center;
+  color: white;
+  font-size: 17px;
+  font-family: Arial;
+}
+
+table.robotTeamTable tr {
+  background-color: #444444;
+  color: white;
+  font-size: 13px;
+  font-family: Arial;
+}
+
+table.robotTeamTable td, table.robotTeamTable th{
+  padding-top: 12px; padding-bottom: 12px;
+  padding-left: 24px; padding-right: 24px;
+  border: 1px solid #777;
+  border-radius: 0px;
+}
+
+table.robotTeamTable tr:nth-child(even){
+  background-color: #686868;
+}
+
+table.robotTeamTable tr:hover {
+  background-color: #333;
+  color: white;
+}
+
+table.robotTeamTable tr.addTableRow {
+  background-color: #a8d6ea;
+  color: #023951;
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: 700;
+}
+
+table.robotTeamTable tr.addTableRow:hover {
+  background-color: #7ed5f7;
+  color: #023951;
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: 700;
+  border: 1px solid #023951;
+}
+
+table.robotTeamTable td.addTableRowCell {
+  border: 1px solid #94bdce;
 }
