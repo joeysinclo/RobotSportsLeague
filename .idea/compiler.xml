@@ -11,7 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="maven-artifact" target="6" />
-      <module name="RobotSportsLeagueWeb" target="6" />
+      <module name="RobotSportsLeagueWeb" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

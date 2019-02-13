@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/robotTeam")
-public class RobotTeam {
+@RequestMapping("/robotTeammates")
+public class RobotTeammatesController {
 
     @GetMapping
-    public String robotTeam(){
-        return "robotTeam";
+    public String robotTeammates(){
+        return "robotTeammates";
     }
 }
