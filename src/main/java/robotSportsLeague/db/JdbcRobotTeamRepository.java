@@ -20,13 +20,13 @@ public class JdbcRobotTeamRepository implements RobotTeamRepository {
 
     @Override
     public Iterable<RobotTeam> findAll() {
-        return jdbc.query("SELECT id, teamname, ownerfirstname, ownerlastname" +
+        return jdbc.query("SELECT id, teamname, ownerfirstname, ownerlastname, createDate, lastUpdatedDate " +
                                 "FROM SportsTeam", this::mapRowToTable);
     }
 
     @Override
     public RobotTeam findTeamById(String id) {
-        return jdbc.queryForObject("SELECT id, teamname, ownerfirstname, ownerlastname " +
+        return jdbc.queryForObject("SELECT id, teamname, ownerfirstname, ownerlastname, createDate, lastUpdatedDate " +
                                 "FROM SportsTeam " +
                                 "WHERE id = ?", this::mapRowToTable, id);
     }
@@ -35,15 +35,19 @@ public class JdbcRobotTeamRepository implements RobotTeamRepository {
         jdbc.update(robotTeam.getId(),
                     robotTeam.getTeamName(),
                     robotTeam.getOwnerFirstName(),
-                    robotTeam.getOwnerLastName());
+                    robotTeam.getOwnerLastName(),
+                    robotTeam.getCreateDate(),
+                    robotTeam.getLastUpdatedDate());
         return robotTeam;
     }
 
     @Override
     public RobotTeam mapRowToTable(ResultSet rs, int rowNum) throws SQLException {
-        return new RobotTeam(rs.getInt(rowNum),
+        return new RobotTeam(rs.getInt(1),
                              rs.getString("teamname"),
                              rs.getString("ownerfirstname"),
-                             rs.getString("ownerlastname"));
+                             rs.getString("ownerlastname"),
+                             rs.getDate("createDate"),
+                             rs.getDate("lastUpdatedDate"));
     }
 }
