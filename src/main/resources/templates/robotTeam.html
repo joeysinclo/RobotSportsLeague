@@ -26,6 +26,32 @@
             <p>Create, modify, or delete teams here</p>
         </div>
 
+        <div class="tableArea">
+            <table id="table" class="robotTeamTable">
+                <thead id="tableHeader" class="tableHeader">
+                <tr>
+                    <th>Team Name</th>
+                    <th>Owner</th>
+                    <th>Date Created</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="team : ${teams}" id="databaseRow">
+                    <td th:value="${team.id}">
+                        <span class="addTableRowCell" th:text="${team.teamName}"></span>
+                    </td>
+                    <td th:value="${team.id}">
+                        <span class="addTableRowCell" th:text="${team.ownerFirstName}"></span>
+                        <span class="addTableRowCell" th:text="${team.ownerLastName}"></span>
+                    </td>
+                    <td th:value="${team.id}">
+                        <span class="addTableRowCell" th:text="${team.createDate}"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <footer id="robotTeam_footer" class="footer">
             <p>Jordan Sinclair, &copy;2019 </p>
         </footer>
