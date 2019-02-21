@@ -52,10 +52,70 @@
             </table>
         </div>
 
+        <div class="robotTeam_buttons">
+            <button id="createTeamButton" class="button">Create New Team</button>
+        </div>
+
         <footer id="robotTeam_footer" class="footer">
             <p>Jordan Sinclair, &copy;2019 </p>
         </footer>
-    </div>
 
+        <div id="createTeamInput" class="modal">
+            <div class="modal_content">
+                <span id="close_input_button" class="close">&times;</span>
+                <header>
+                    <h2>Create your team</h2>
+                </header>
+                <div>
+                    <h3>Team</h3>
+                </div>
+                <div>
+                    Team Name: <input class="teamName_input" type="text">
+                </div>
+                <div>
+                    <h3>Team Owner</h3>
+                </div>
+                <div class="fullname_input">
+                    <div class="firstname_input">
+                        First Name: <input type="text">
+                    </div>
+                    <div class="lastname_input">
+                        Last Name: <input type="text">
+                    </div>
+                </div>
+                <div class="submitButton">
+                    <button id="submitButton" class="button">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="createTeamConfirmation" class="modal">
+            <div class="modal_content">
+                <span id="close_confirmation_button" class="close">&times;</span>
+                <header>
+                    <h2>Create your team</h2>
+                </header>
+                <div>
+                    <h3>Team Name</h3>
+                </div>
+                {teamName}
+                <div>
+                    <h3>Team Owner</h3>
+                </div>
+                <div class="fullname_input">
+                    <div class="firstname_input">
+                        First Name: {firstName}
+                    </div>
+                    <div class="lastname_input">
+                        Last Name: {lastName}
+                    </div>
+                </div>
+                <div class="confirmButton">
+                    <button id="confirmButton" class="button">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/robotTeam.js"></script>
 </body>
 </html>

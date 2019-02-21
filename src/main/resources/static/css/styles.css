@@ -52,6 +52,7 @@
 * Buttons
 */
 .button {
+  margin: 10px;
   padding: 18px;
   font-size: 14px;
   font-family: Arial;
@@ -86,6 +87,9 @@
 /*
 * Tables
 */
+div.tableArea {
+  margin: 10px;
+}
 
 table.robotTeamTable {
   margin-left: auto; margin-right: auto;
@@ -109,13 +113,6 @@ table.robotTeamTable tr {
   font-family: Arial;
 }
 
-table.robotTeamTable td, table.robotTeamTable th{
-  padding-top: 12px; padding-bottom: 12px;
-  padding-left: 24px; padding-right: 24px;
-  border: 1px solid #777;
-  border-radius: 0px;
-}
-
 table.robotTeamTable tr:nth-child(even){
   background-color: #686868;
 }
@@ -125,23 +122,48 @@ table.robotTeamTable tr:hover {
   color: white;
 }
 
-table.robotTeamTable tr.addTableRow {
-  background-color: #a8d6ea;
-  color: #023951;
-  font-size: 14px;
-  font-family: Arial;
-  font-weight: 700;
+table.robotTeamTable td, table.robotTeamTable th{
+  padding-top: 12px; padding-bottom: 12px;
+  padding-left: 24px; padding-right: 24px;
+  border: 1px solid #777;
+  border-radius: 0px;
 }
 
-table.robotTeamTable tr.addTableRow:hover {
-  background-color: #7ed5f7;
-  color: #023951;
-  font-size: 14px;
-  font-family: Arial;
-  font-weight: 700;
-  border: 1px solid #023951;
+/*
+ Modal Boxes
+*/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-table.robotTeamTable td.addTableRowCell {
-  border: 1px solid #94bdce;
+.modal_content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
