@@ -7,38 +7,38 @@ import java.util.Date;
 @Data
 public class RobotTeam {
 
-    private int id;
+    private Integer id;
     private String teamName;
     private String ownerFirstName;
     private String ownerLastName;
     private Date createDate;
     private Date lastUpdatedDate;
 
-    public RobotTeam(int id, String teamname, String ownerfirstname, String ownerlastname, Date createDate, Date lastUpdatedDate) {
+    public RobotTeam(Integer id, String teamName, String ownerFirstName, String ownerLastName, Date createDate, Date lastUpdatedDate) {
         this.id = id;
-        this.teamName = teamname;
-        this.ownerFirstName = ownerfirstname;
-        this.ownerLastName = ownerlastname;
+        this.teamName = teamName;
+        this.ownerFirstName = ownerFirstName;
+        this.ownerLastName = ownerLastName;
         this.createDate = createDate;
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
-    public String getId() {
-        return String.valueOf(id);
+    public Integer getId() {
+        return id;
     }
-    public Object getTeamName() {
+    public String getTeamName() {
         return teamName;
     }
-    public Object getOwnerFirstName() {
+    public String getOwnerFirstName() {
         return ownerFirstName;
     }
-    public Object getOwnerLastName() {
+    public String getOwnerLastName() {
         return ownerLastName;
     }
-    public Object getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
-    public Object getLastUpdatedDate() {
+    public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 }

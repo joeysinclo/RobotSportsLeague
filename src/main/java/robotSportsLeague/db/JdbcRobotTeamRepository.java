@@ -2,43 +2,81 @@ package robotSportsLeague.db;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import robotSportsLeague.web.model.RobotTeam;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class JdbcRobotTeamRepository implements RobotTeamRepository {
 
     private JdbcTemplate jdbc;
+    private SimpleJdbcInsert simpleJdbcInsert;
 
     @Autowired
     public JdbcRobotTeamRepository (JdbcTemplate jdbc){
         this.jdbc = jdbc;
+        this.simpleJdbcInsert = new SimpleJdbcInsert(jdbc).withTableName("SportsTeam").usingGeneratedKeyColumns("id");
     }
 
     @Override
-    public Iterable<RobotTeam> findAll() {
+    public List<RobotTeam> findAll() {
         return jdbc.query("SELECT id, teamname, ownerfirstname, ownerlastname, createDate, lastUpdatedDate " +
                                 "FROM SportsTeam", this::mapRowToTable);
     }
 
     @Override
-    public RobotTeam findTeamById(String id) {
+    public RobotTeam findOne(Integer id) {
         return jdbc.queryForObject("SELECT id, teamname, ownerfirstname, ownerlastname, createDate, lastUpdatedDate " +
                                 "FROM SportsTeam " +
                                 "WHERE id = ?", this::mapRowToTable, id);
     }
-
-    public RobotTeam createTeam(RobotTeam robotTeam){
-        jdbc.update(robotTeam.getId(),
+    @Override
+    public RobotTeam save(RobotTeam robotTeam){
+        jdbc.update("INSERT INTO SportsTeam (teamname, ownerfirstname, ownerlastname) " +
+                        "VALUES (?, ?, ?)",
                     robotTeam.getTeamName(),
                     robotTeam.getOwnerFirstName(),
-                    robotTeam.getOwnerLastName(),
-                    robotTeam.getCreateDate(),
-                    robotTeam.getLastUpdatedDate());
+                    robotTeam.getOwnerLastName());
         return robotTeam;
+    }
+
+    @Override
+    public Iterable<RobotTeam> save(Iterable<? extends RobotTeam> iterable) {
+        return null;
+    }
+
+    @Override
+    public boolean exists(Integer integer) {
+        return false;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void delete(Integer integer) {
+
+    }
+
+    @Override
+    public void delete(RobotTeam robotTeam) {
+
+    }
+
+    @Override
+    public void delete(Iterable<? extends RobotTeam> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
     }
 
     @Override
