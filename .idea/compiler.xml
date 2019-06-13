@@ -12,11 +12,13 @@
     <bytecodeTargetLevel>
       <module name="maven-artifact" target="6" />
       <module name="RobotSportsLeagueWeb" target="8" />
+      <module name="taco-cloud" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="RobotSportsLeagueWeb" options="-parameters" />
+      <module name="taco-cloud" options="-parameters" />
     </option>
   </component>
 </project>

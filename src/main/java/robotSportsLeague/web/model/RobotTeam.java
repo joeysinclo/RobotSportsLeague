@@ -14,6 +14,9 @@ public class RobotTeam {
     private Date createDate;
     private Date lastUpdatedDate;
 
+    public RobotTeam() {
+    }
+
     public RobotTeam(Integer id, String teamName, String ownerFirstName, String ownerLastName, Date createDate, Date lastUpdatedDate) {
         this.id = id;
         this.teamName = teamName;
@@ -41,4 +44,23 @@ public class RobotTeam {
     public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
+    public void setId(Integer id){
+        this.id = id;
+    }
+    public void setTeamName(String teamName){
+        this.teamName = teamName;
+    }
+    public void setOwnerFirstName(String ownerFirstName){
+        this.ownerFirstName = ownerFirstName;
+    }
+    public void setOwnerLastName(String ownerLastName){
+        this.ownerLastName = ownerLastName;
+    }
+    public void setCreateDate(Date createDate){
+        this.createDate = createDate;
+    }
+    public void setLastUpdatedDate(Date lastUpdatedDate){
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
 }
