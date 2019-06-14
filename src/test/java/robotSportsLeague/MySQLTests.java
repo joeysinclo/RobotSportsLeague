@@ -29,63 +29,63 @@ public class MySQLTests {
 
     @Test(expected = DuplicateKeyException.class)
     public void preventDuplicateTeamNames(){
-        RobotTeam insertEntry1 = new RobotTeam();
-        insertEntry1.setTeamName("Team Name");
-        insertEntry1.setOwnerFirstName("First Name");
-        insertEntry1.setOwnerLastName("Last Name");
-        jdbcRobotTeamRepo.save(insertEntry1);
-        jdbcRobotTeamRepo.save(insertEntry1);
+        RobotTeam insertEntry = new RobotTeam();
+        insertEntry.setTeamName("Team Name");
+        insertEntry.setOwnerFirstName("First Name");
+        insertEntry.setOwnerLastName("Last Name");
+        jdbcRobotTeamRepo.save(insertEntry);
+        jdbcRobotTeamRepo.save(insertEntry);
     }
 
 //    @Test(expected = DataIntegrityViolationException.class)
 //    public void preventNullId(){
-//        RobotTeam insertEntry1 = new RobotTeam();
-//        insertEntry1.setId(null);
-//        insertEntry1.setTeamName("Team Name");
-//        insertEntry1.setOwnerFirstName("First Name");
-//        insertEntry1.setOwnerLastName("Last Name");
+//        RobotTeam insertEntry = new RobotTeam();
+//        insertEntry.setId(null);
+//        insertEntry.setTeamName("Team Name");
+//        insertEntry.setOwnerFirstName("First Name");
+//        insertEntry.setOwnerLastName("Last Name");
 //        jdbc.update("INSERT INTO SportsTeam (id, teamname, ownerfirstname, ownerlastname) " +
 //                        "VALUES (?, ?, ?, ?)",
-//                insertEntry1.getId(),
-//                insertEntry1.getTeamName(),
-//                insertEntry1.getOwnerFirstName(),
-//                insertEntry1.getOwnerLastName());
+//                insertEntry.getId(),
+//                insertEntry.getTeamName(),
+//                insertEntry.getOwnerFirstName(),
+//                insertEntry.getOwnerLastName());
 //    }
 
     @Test(expected = DataIntegrityViolationException.class)
     public void preventNullTeamName(){
-        RobotTeam insertEntry1 = new RobotTeam();
-        insertEntry1.setTeamName(null);
-        insertEntry1.setOwnerFirstName("First Name");
-        insertEntry1.setOwnerLastName("Last Name");
-        jdbcRobotTeamRepo.save(insertEntry1);
+        RobotTeam insertEntry = new RobotTeam();
+        insertEntry.setTeamName(null);
+        insertEntry.setOwnerFirstName("First Name");
+        insertEntry.setOwnerLastName("Last Name");
+        jdbcRobotTeamRepo.save(insertEntry);
     }
 
     @Test(expected = DataIntegrityViolationException.class)
     public void preventNullFirstName(){
-        RobotTeam insertEntry1 = new RobotTeam();
-        insertEntry1.setTeamName("Team Name");
-        insertEntry1.setOwnerFirstName(null);
-        insertEntry1.setOwnerLastName("Last Name");
-        jdbcRobotTeamRepo.save(insertEntry1);
+        RobotTeam insertEntry = new RobotTeam();
+        insertEntry.setTeamName("Team Name");
+        insertEntry.setOwnerFirstName(null);
+        insertEntry.setOwnerLastName("Last Name");
+        jdbcRobotTeamRepo.save(insertEntry);
     }
 
     @Test(expected = DataIntegrityViolationException.class)
     public void preventNullLastName(){
-        RobotTeam insertEntry1 = new RobotTeam();
-        insertEntry1.setTeamName("Team Name");
-        insertEntry1.setOwnerFirstName("First Name");
-        insertEntry1.setOwnerLastName(null);
-        jdbcRobotTeamRepo.save(insertEntry1);
+        RobotTeam insertEntry = new RobotTeam();
+        insertEntry.setTeamName("Team Name");
+        insertEntry.setOwnerFirstName("First Name");
+        insertEntry.setOwnerLastName(null);
+        jdbcRobotTeamRepo.save(insertEntry);
     }
 
 //    @Test
 //    public void createDateOnInsert(){
-//        RobotTeam insertEntry1 = new RobotTeam();
-//        insertEntry1.setTeamName("Team Name");
-//        insertEntry1.setOwnerFirstName("First Name");
-//        insertEntry1.setOwnerLastName("Last Name");
-//        jdbcRobotTeamRepo.save(insertEntry1);
+//        RobotTeam insertEntry = new RobotTeam();
+//        insertEntry.setTeamName("Team Name");
+//        insertEntry.setOwnerFirstName("First Name");
+//        insertEntry.setOwnerLastName("Last Name");
+//        jdbcRobotTeamRepo.save(insertEntry);
 //    }
 
 //    @Test
