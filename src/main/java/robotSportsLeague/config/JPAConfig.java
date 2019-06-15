@@ -3,6 +3,7 @@ package robotSportsLeague.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,7 +22,7 @@ public class JPAConfig {
     @Autowired
     private JdbcTemplate jdbc = new JdbcTemplate();
 
-    @Bean
+    @Primary @Bean
     public JdbcRobotTeamRepository jdbcRobotTeamRepo() {
         return new JdbcRobotTeamRepository(jdbc);
     }
@@ -33,7 +34,6 @@ public class JPAConfig {
         dataSource.setUrl(environment.getProperty("spring.datasource.url"));
         dataSource.setUsername(environment.getProperty("spring.datasource.username"));
         dataSource.setPassword(environment.getProperty("spring.datasource.password"));
-        dataSource.setSchema(environment.getProperty("spring.datasource.initialization-mode"));
 
         return dataSource;
     }
