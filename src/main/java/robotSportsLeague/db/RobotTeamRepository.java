@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 public interface RobotTeamRepository extends CrudRepository<RobotTeam, Integer> {
 
+    RobotTeam findOne(String teamName);
+
     RobotTeam mapRowToTable(ResultSet rs, int rowNum)
             throws SQLException;
 

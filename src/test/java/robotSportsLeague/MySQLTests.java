@@ -1,5 +1,6 @@
 package robotSportsLeague;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.junit.Assert;
 import robotSportsLeague.config.JPAConfig;
 import robotSportsLeague.db.JdbcRobotTeamRepository;
 import robotSportsLeague.web.model.RobotTeam;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {JPAConfig.class}, loader = AnnotationConfigContextLoader.class)
@@ -36,21 +39,6 @@ public class MySQLTests {
         jdbcRobotTeamRepo.save(insertEntry);
         jdbcRobotTeamRepo.save(insertEntry);
     }
-
-//    @Test(expected = DataIntegrityViolationException.class)
-//    public void preventNullId(){
-//        RobotTeam insertEntry = new RobotTeam();
-//        insertEntry.setId(null);
-//        insertEntry.setTeamName("Team Name");
-//        insertEntry.setOwnerFirstName("First Name");
-//        insertEntry.setOwnerLastName("Last Name");
-//        jdbc.update("INSERT INTO SportsTeam (id, teamname, ownerfirstname, ownerlastname) " +
-//                        "VALUES (?, ?, ?, ?)",
-//                insertEntry.getId(),
-//                insertEntry.getTeamName(),
-//                insertEntry.getOwnerFirstName(),
-//                insertEntry.getOwnerLastName());
-//    }
 
     @Test(expected = DataIntegrityViolationException.class)
     public void preventNullTeamName(){
@@ -79,35 +67,36 @@ public class MySQLTests {
         jdbcRobotTeamRepo.save(insertEntry);
     }
 
-//    @Test
-//    public void createDateOnInsert(){
-//        RobotTeam insertEntry = new RobotTeam();
-//        insertEntry.setTeamName("Team Name");
-//        insertEntry.setOwnerFirstName("First Name");
-//        insertEntry.setOwnerLastName("Last Name");
-//        jdbcRobotTeamRepo.save(insertEntry);
-//    }
+    @Test
+    public void createDateOnInsert(){
+        RobotTeam insertEntry = new RobotTeam();
+        LocalDate date = LocalDate.now();
 
-//    @Test
-//    public void updateDateOnUpdate(){
-//        RobotTeam insertEntry1 = new RobotTeam();
-//        insertEntry1.setTeamName("Team Name");
-//        insertEntry1.setOwnerFirstName("First Name");
-//        insertEntry1.setOwnerLastName("Last Name");
-//
-//        RobotTeam insertEntry2 = new RobotTeam();
-//        insertEntry2.setTeamName("Team Name");
-//        insertEntry2.setOwnerFirstName("New First Name");
-//        insertEntry2.setOwnerLastName("New Last Name");
-//
-//        jdbcRobotTeamRepo.save(insertEntry1);
-//        insertEntry1.setOwnerFirstName("New First Name");
-//        insertEntry1.setOwnerLastName("New Last Name");
-//
-//        jdbc.update("UPDATE SportsTeam SET ownerfirstname = ?, ownerlastname = ? " +
-//                        "WHERE teamname = ?",
-//                insertEntry2.getTeamName(),
-//                insertEntry2.getOwnerFirstName(),
-//                insertEntry2.getOwnerLastName());
-//    }
+        insertEntry.setTeamName("Team Name");
+        insertEntry.setOwnerFirstName("First Name");
+        insertEntry.setOwnerLastName("Last Name");
+
+        jdbcRobotTeamRepo.save(insertEntry);
+        String insertResult = insertEntry.getTeamName();
+        Assert.assertEquals("'createdate' is invalid", date.toString(), jdbcRobotTeamRepo.findOne(insertResult).getCreateDate().toString());
+    }
+
+    @Ignore
+    @Test
+    public void updateDateOnUpdate(){
+        RobotTeam insertEntry = new RobotTeam();
+        insertEntry.setTeamName("Team Name");
+        insertEntry.setOwnerFirstName("First Name");
+        insertEntry.setOwnerLastName("Last Name");
+        jdbcRobotTeamRepo.save(insertEntry);
+
+        insertEntry.setOwnerFirstName("New First Name");
+        insertEntry.setOwnerLastName("New Last Name");
+
+        jdbc.update("UPDATE SportsTeam SET ownerfirstname = ?, ownerlastname = ? " +
+                        "WHERE teamname = ?",
+                insertEntry.getOwnerFirstName(),
+                insertEntry.getOwnerLastName(),
+                insertEntry.getTeamName());
+    }
 }

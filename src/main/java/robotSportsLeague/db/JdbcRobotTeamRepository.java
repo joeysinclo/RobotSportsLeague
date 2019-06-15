@@ -34,6 +34,7 @@ public class JdbcRobotTeamRepository implements RobotTeamRepository {
                                 "FROM SportsTeam " +
                                 "WHERE id = ?", this::mapRowToTable, id);
     }
+
     @Override
     public RobotTeam save(RobotTeam robotTeam){
         jdbc.update("INSERT INTO SportsTeam (teamname, ownerfirstname, ownerlastname) " +
@@ -77,6 +78,13 @@ public class JdbcRobotTeamRepository implements RobotTeamRepository {
     @Override
     public void deleteAll() {
 
+    }
+
+    @Override
+    public RobotTeam findOne(String teamName) {
+        return jdbc.queryForObject("SELECT id, teamname, ownerfirstname, ownerlastname, createDate, lastUpdatedDate " +
+                "FROM SportsTeam " +
+                "WHERE teamname = ?", this::mapRowToTable, teamName);
     }
 
     @Override
