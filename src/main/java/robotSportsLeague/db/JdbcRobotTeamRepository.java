@@ -93,7 +93,7 @@ public class JdbcRobotTeamRepository implements RobotTeamRepository {
                              rs.getString("teamname"),
                              rs.getString("ownerfirstname"),
                              rs.getString("ownerlastname"),
-                             rs.getDate("createDate"),
-                             rs.getDate("lastUpdatedDate"));
+                             rs.getTimestamp("createDate").toLocalDateTime(),
+                             rs.getTimestamp("lastUpdatedDate").toLocalDateTime());
     }
 }

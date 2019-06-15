@@ -3,8 +3,8 @@ create table if not exists SportsTeam(
     teamname varchar(60) not null,
     ownerfirstname varchar(30) not null,
     ownerlastname varchar(30) not null,
-    createDate datetime default current_timestamp,
-    lastUpdatedDate datetime default current_timestamp on update current_timestamp,
+    createdate timestamp default current_timestamp,
+    lastupdateddate timestamp default current_timestamp on update current_timestamp,
     unique key unique_teamname(teamname)
 );
 

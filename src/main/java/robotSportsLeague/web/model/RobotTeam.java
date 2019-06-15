@@ -2,7 +2,7 @@ package robotSportsLeague.web.model;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 public class RobotTeam {
@@ -11,13 +11,13 @@ public class RobotTeam {
     private String teamName;
     private String ownerFirstName;
     private String ownerLastName;
-    private Date createDate;
-    private Date lastUpdatedDate;
+    private LocalDateTime createDate;
+    private LocalDateTime lastUpdatedDate;
 
     public RobotTeam() {
     }
 
-    public RobotTeam(Integer id, String teamName, String ownerFirstName, String ownerLastName, Date createDate, Date lastUpdatedDate) {
+    public RobotTeam(Integer id, String teamName, String ownerFirstName, String ownerLastName, LocalDateTime createDate, LocalDateTime lastUpdatedDate) {
         this.id = id;
         this.teamName = teamName;
         this.ownerFirstName = ownerFirstName;
@@ -38,10 +38,10 @@ public class RobotTeam {
     public String getOwnerLastName() {
         return ownerLastName;
     }
-    public Date getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
-    public Date getLastUpdatedDate() {
+    public LocalDateTime getLastUpdatedDate() {
         return lastUpdatedDate;
     }
     public void setId(Integer id){
@@ -56,10 +56,10 @@ public class RobotTeam {
     public void setOwnerLastName(String ownerLastName){
         this.ownerLastName = ownerLastName;
     }
-    public void setCreateDate(Date createDate){
+    public void setCreateDate(LocalDateTime createDate){
         this.createDate = createDate;
     }
-    public void setLastUpdatedDate(Date lastUpdatedDate){
+    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate){
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
