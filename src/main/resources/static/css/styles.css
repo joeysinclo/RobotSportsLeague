@@ -96,6 +96,7 @@ table.robotTeamTable {
   border-collapse: collapse;
   padding: 12px;
   border-style: hidden;
+  position: relative;
 }
 
 table.robotTeamTable th {

@@ -33,6 +33,7 @@
                     <th>Team Name</th>
                     <th>Owner</th>
                     <th>Date Created</th>
+                    <th>Edit/Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,9 @@
                     <td th:value="${team.id}">
                         <span class="addTableRowCell" th:text="${team.createDate}"></span>
                     </td>
+                    <td class="editTableRowCell">
+                        <button id="editTeamButton" class="editRowButton" type="button">Edit</button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -60,10 +64,11 @@
             <p>Jordan Sinclair, &copy;2019 </p>
         </footer>
 
+        <!--Create Team Form-->
         <form method="post" th:object="${robotTeam}" action="#" th:action="@{/robotTeam}">
         <div id="createTeamInput" class="modal">
                 <div class="modal_content">
-                    <span id="close_input_button" class="close">&times;</span>
+                    <span id="close_create_team_input_button" class="close">&times;</span>
                     <header>
                         <h2>Create your team</h2>
                     </header>
@@ -71,24 +76,56 @@
                         <h3>Team</h3>
                     </div>
                     <div>
-                        Team Name: <input class="teamName_input" type="text" id="teamNameInput" th:field="*{teamName}">
+                        Team Name: <input class="teamNameInput" type="text" id="createTeamNameInput" th:field="*{teamName}">
                     </div>
                     <div>
                         <h3>Team Owner</h3>
                     </div>
-                    <div class="fullname_input">
-                        <div class="firstname_input">
-                            First Name: <input type="text" id="firstNameInput" th:field="*{ownerFirstName}">
+                    <div class="fullNameInput">
+                        <div class="firstNameInput">
+                            First Name: <input type="text" id="createFirstNameInput" th:field="*{ownerFirstName}">
                         </div>
-                        <div class="lastname_input">
-                            Last Name: <input type="text" id="lastNameInput" th:field="*{ownerLastName}">
+                        <div class="lastNameInput">
+                            Last Name: <input type="text" id="createLastNameInput" th:field="*{ownerLastName}">
                         </div>
                     </div>
                     <div class="submitButton">
-                        <button id="submitButton" class="button" type="button">Submit</button>
+                        <button id="createInputButton" class="button" type="button">Submit</button>
                     </div>
                 </div>
             </div>
+
+            <!--Edit Team Form-->
+            <div id="editTeamInput" class="modal">
+                <div class="modal_content">
+                    <span id="close_edit_team_input_button" class="close">&times;</span>
+                    <header>
+                        <h2>Modify your team</h2>
+                    </header>
+                    <div>
+                        <h3>Team</h3>
+                    </div>
+                    <div>
+                        Team Name: <input class="teamNameInput" type="text" id="editTeamNameInput" th:field="*{teamName}">
+                    </div>
+                    <div>
+                        <h3>Team Owner</h3>
+                    </div>
+                    <div class="fullNameInput">
+                        <div class="firstNameInput">
+                            First Name: <input class="firstNameInput" type="text" id="editFirstNameInput" th:field="*{ownerFirstName}">
+                        </div>
+                        <div class="lastNameInput">
+                            Last Name: <input class="lastNameInput" type="text" id="editLastNameInput" th:field="*{ownerLastName}">
+                        </div>
+                    </div>
+                    <div class="submitButton">
+                        <button id="editInputButton" class="button" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirmation modal -->
             <div id="createTeamConfirmation" class="modal">
                 <div class="modal_content">
                     <span id="close_confirmation_button" class="close">&times;</span>
@@ -102,11 +139,11 @@
                     <div>
                         <h3>Team Owner</h3>
                     </div>
-                    <div class="fullname_input">
-                        <div class="firstname_input">
+                    <div class="fullNameValue">
+                        <div class="firstNameValue">
                             First Name: <span id="firstNameValue">{firstName}</span>
                         </div>
-                        <div class="lastname_input">
+                        <div class="lastNameValue">
                             Last Name: <span id="lastNameValue">{lastName}</span>
                         </div>
                     </div>
