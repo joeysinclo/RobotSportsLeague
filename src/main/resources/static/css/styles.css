@@ -131,24 +131,6 @@ table.robotTeamTable td, table.robotTeamTable th{
 }
 
 /*
-table.robotTeamTable td.editTableRowCell {
-  display: none;
-}
-
-table.robotTeamTable button {
-  display: none;
-}
-
-table.robotTeamTable tr:hover td.editTableRowCell {
-  display: block;
-}
-
-table.robotTeamTable tr:hover button {
-  display: block;
-}
-*/
-
-/*
  Modal Boxes
 */
 
