@@ -95,7 +95,37 @@
                 </div>
             </div>
 
-            <!--Edit Team Form-->
+            <!-- Create Confirmation modal -->
+            <div id="createTeamConfirmation" class="modal">
+                <div class="modal_content">
+                    <span id="close_create_confirmation_button" class="close">&times;</span>
+                    <header>
+                        <h2>Create your team</h2>
+                    </header>
+                    <div>
+                        <h3>Team Name</h3>
+                    </div>
+                        <span id="createTeamNameValue">{teamName}</span>
+                    <div>
+                        <h3>Team Owner</h3>
+                    </div>
+                    <div class="fullNameValue">
+                        <div class="firstNameValue">
+                            First Name: <span id="createFirstNameValue">{firstName}</span>
+                        </div>
+                        <div class="lastNameValue">
+                            Last Name: <span id="createLastNameValue">{lastName}</span>
+                        </div>
+                    </div>
+                    <div class="confirmButton">
+                        <button id="createConfirmButton" class="button" type="submit">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--Edit Team Form-->
+        <form method="post" th:object="${robotTeam}" action="#" th:action="@{/robotTeam}">
             <div id="editTeamInput" class="modal">
                 <div class="modal_content">
                     <span id="close_edit_team_input_button" class="close">&times;</span>
@@ -125,30 +155,30 @@
                 </div>
             </div>
 
-            <!-- Confirmation modal -->
-            <div id="createTeamConfirmation" class="modal">
+            <!-- Edit Confirmation modal -->
+            <div id="editTeamConfirmation" class="modal">
                 <div class="modal_content">
-                    <span id="close_confirmation_button" class="close">&times;</span>
+                    <span id="close_edit_confirmation_button" class="close">&times;</span>
                     <header>
                         <h2>Create your team</h2>
                     </header>
                     <div>
                         <h3>Team Name</h3>
                     </div>
-                        <span id="teamNameValue">{teamName}</span>
+                    <span id="editTeamNameValue">{teamName}</span>
                     <div>
                         <h3>Team Owner</h3>
                     </div>
                     <div class="fullNameValue">
                         <div class="firstNameValue">
-                            First Name: <span id="firstNameValue">{firstName}</span>
+                            First Name: <span id="editFirstNameValue">{firstName}</span>
                         </div>
                         <div class="lastNameValue">
-                            Last Name: <span id="lastNameValue">{lastName}</span>
+                            Last Name: <span id="editLastNameValue">{lastName}</span>
                         </div>
                     </div>
                     <div class="confirmButton">
-                        <button id="confirmButton" class="button" type="submit">Confirm</button>
+                        <button id="editConfirmButton" class="button" type="submit">Confirm</button>
                     </div>
                 </div>
             </div>
