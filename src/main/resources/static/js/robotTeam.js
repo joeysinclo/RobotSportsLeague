@@ -6,7 +6,7 @@ var editConfirmModal = document.getElementById("editTeamConfirmation");
 
 // Get the buttons that opens the modal
 var createTeamBtn = document.getElementById("createTeamButton");
-var editTeamBtn = document.getElementById("editTeamButton");
+var editTeamBtn = document.getElementsByClassName("editRowButton");
 
 // Get the buttons that saves input provided by user
 var createInputBtn = document.getElementById("createInputButton");
@@ -25,8 +25,18 @@ createTeamBtn.onclick = function() {
 }
 
 // When the user clicks the edit button, open the 'edit team' input modal
-editTeamBtn.onclick = function() {
-  editInputModal.style.display = "block";
+var numOfRows = document.getElementById("tableBody").getElementsByTagName("tr");
+for (i = 0; i < numOfRows.length; i++) {
+
+  if (editTeamBtn == document.getElementById("editTeamButton") || editTeamBtn.id != "editTeamButton" + i){
+     editTeamBtn[i].id = "editTeamButton" + i;
+  }
+
+  if (editTeamBtn[i] == document.getElementById("editTeamButton" + i)){
+    editTeamBtn[i].onclick = function() {
+       editInputModal.style.display = "block";
+    }
+  }
 }
 
 // When the user clicks 2nd "create team" button, display 'confirmation modal'

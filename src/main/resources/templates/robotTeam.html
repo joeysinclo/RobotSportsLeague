@@ -36,19 +36,19 @@
                     <th>Edit/Delete</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr th:each="team : ${teams}" id="databaseRow">
-                    <td th:value="${team.id}">
+                <tbody id="tableBody" class="tableBody">
+                <tr th:each="team : ${teams}">
+                    <td th:value="${team.teamName}">
                         <span class="addTableRowCell" th:text="${team.teamName}"></span>
                     </td>
-                    <td th:value="${team.id}">
+                    <td th:value="${team.ownerFirstName} + ' ' + ${team.ownerLastName}">
                         <span class="addTableRowCell" th:text="${team.ownerFirstName}"></span>
                         <span class="addTableRowCell" th:text="${team.ownerLastName}"></span>
                     </td>
-                    <td th:value="${team.id}">
+                    <td th:value="${team.createDate}">
                         <span class="addTableRowCell" th:text="${team.createDate}"></span>
                     </td>
-                    <td class="editTableRowCell">
+                    <td th:value="edit_ + ${team.teamName}" class="editTableRowCell">
                         <button id="editTeamButton" class="editRowButton" type="button">Edit</button>
                     </td>
                 </tr>
