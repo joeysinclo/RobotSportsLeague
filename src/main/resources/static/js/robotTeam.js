@@ -18,6 +18,10 @@ var editInputCloseBtn = document.getElementById("close_edit_team_input_button");
 var createConfirmCloseBtn = document.getElementById("close_create_confirmation_button");
 var editConfirmCloseBtn = document.getElementById("close_edit_confirmation_button");
 
+// Edit team inputs (id - good for reusing the same modal window and text boxes, just storing different values)
+var editTeamNameInput = document.getElementById("editTeamNameInput");
+var editOwnerFirstNameInput = document.getElementById("editFirstNameInput");
+var editOwnerLastNameInput = document.getElementById("editLastNameInput");
 
 // When the user clicks the "create team" button, open the 'create team' input modal
 createTeamBtn.onclick = function() {
@@ -26,17 +30,25 @@ createTeamBtn.onclick = function() {
 
 // When the user clicks the edit button, open the 'edit team' input modal
 var numOfRows = document.getElementById("tableBody").getElementsByTagName("tr");
-for (i = 0; i < numOfRows.length; i++) {
+for (editTeamBtn[i = 0]; i < numOfRows.length; i++) {
 
+// Create unique id for each edit button
   if (editTeamBtn == document.getElementById("editTeamButton") || editTeamBtn.id != "editTeamButton" + i){
      editTeamBtn[i].id = "editTeamButton" + i;
   }
+}
 
-  if (editTeamBtn[i] == document.getElementById("editTeamButton" + i)){
-    editTeamBtn[i].onclick = function() {
-       editInputModal.style.display = "block";
-    }
-  }
+function edit(x){
+
+    var teamNameCell = document.getElementsByClassName("tableRow")[x.rowIndex - 1].children[0].children[0].innerHTML;
+    var ownerFirstNameCell = document.getElementsByClassName("tableRow")[x.rowIndex - 1].children[1].children[0].innerHTML;
+    var ownerLastNameCell = document.getElementsByClassName("tableRow")[x.rowIndex - 1].children[1].children[1].innerHTML;
+
+    editTeamNameInput.value = teamNameCell;
+    editOwnerFirstNameInput.value = ownerFirstNameCell;
+    editOwnerLastNameInput.value = ownerLastNameCell;
+
+    editInputModal.style.display = "block";
 }
 
 // When the user clicks 2nd "create team" button, display 'confirmation modal'

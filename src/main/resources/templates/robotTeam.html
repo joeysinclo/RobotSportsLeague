@@ -37,16 +37,16 @@
                 </tr>
                 </thead>
                 <tbody id="tableBody" class="tableBody">
-                <tr th:each="team : ${teams}">
-                    <td th:value="${team.teamName}">
-                        <span class="addTableRowCell" th:text="${team.teamName}"></span>
+                <tr th:each="team : ${teams}" class="tableRow" onclick="edit(this)">
+                    <td class="teamNameCell" th:value="${team.teamName}">
+                        <span class="teamName" th:value="${team.teamName}" th:text="${team.teamName}"></span>
                     </td>
                     <td th:value="${team.ownerFirstName} + ' ' + ${team.ownerLastName}">
-                        <span class="addTableRowCell" th:text="${team.ownerFirstName}"></span>
-                        <span class="addTableRowCell" th:text="${team.ownerLastName}"></span>
+                        <span class="ownerFirstName" th:value="${team.ownerFirstName}" th:text="${team.ownerFirstName}"></span>
+                        <span class="ownerLastName" th:value="${team.ownerLastName}" th:text="${team.ownerLastName}"></span>
                     </td>
                     <td th:value="${team.createDate}">
-                        <span class="addTableRowCell" th:text="${team.createDate}"></span>
+                        <span class="teamCreateDate" th:value="${team.createDate}" th:text="${team.createDate}"></span>
                     </td>
                     <td th:value="edit_ + ${team.teamName}" class="editTableRowCell">
                         <button id="editTeamButton" class="editRowButton" type="button">Edit</button>
@@ -125,7 +125,9 @@
         </form>
 
         <!--Edit Team Form-->
-        <form method="post" th:object="${robotTeam}" action="#" th:action="@{/robotTeam}">
+        <form method="post" th:object="${robotTeam}" action="#" th:action="@{/robotTeam/editRobotTeam}">
+            <input type="hidden" name="_method" value="put"/>
+            <input type="hidden" th:field="*{id}"/>
             <div id="editTeamInput" class="modal">
                 <div class="modal_content">
                     <span id="close_edit_team_input_button" class="close">&times;</span>
@@ -136,17 +138,17 @@
                         <h3>Team</h3>
                     </div>
                     <div>
-                        Team Name: <input class="teamNameInput" type="text" id="editTeamNameInput" th:field="*{teamName}">
+                        Team Name: <input class="edit_teamNameInput" type="text" id="editTeamNameInput" th:field="*{teamName}">
                     </div>
                     <div>
                         <h3>Team Owner</h3>
                     </div>
                     <div class="fullNameInput">
                         <div class="firstNameInput">
-                            First Name: <input class="firstNameInput" type="text" id="editFirstNameInput" th:field="*{ownerFirstName}">
+                            First Name: <input class="edit_firstNameInput" type="text" id="editFirstNameInput" th:field="*{ownerFirstName}">
                         </div>
                         <div class="lastNameInput">
-                            Last Name: <input class="lastNameInput" type="text" id="editLastNameInput" th:field="*{ownerLastName}">
+                            Last Name: <input class="edit_lastNameInput" type="text" id="editLastNameInput" th:field="*{ownerLastName}">
                         </div>
                     </div>
                     <div class="submitButton">
@@ -179,6 +181,9 @@
                     </div>
                     <div class="confirmButton">
                         <button id="editConfirmButton" class="button" type="submit">Confirm</button>
+                        <!--<a th:href="@{'/robotTeam/editRobotTeam' + *{id}">-->
+                            <!--<span id="editConfirmButton" class="button">Edit</span>-->
+                        <!--</a>-->
                     </div>
                 </div>
             </div>
