@@ -1,12 +1,4 @@
 /*
-* Area
-*/
-
-.body_area {
-  text-align: center;
-}
-
-/*
 * Top navigation
 */
 .top_nav_border {
@@ -48,6 +40,10 @@
 /*
 * Body
 */
+.body_area {
+  text-align: center;
+}
+
 .body {
 
 }
@@ -56,6 +52,7 @@
 * Buttons
 */
 .button {
+  margin: 10px;
   padding: 18px;
   font-size: 14px;
   font-family: Arial;
@@ -85,4 +82,89 @@
 
 .footer {
   border-bottom: 5px solid #20314c;
+}
+
+/*
+* Tables
+*/
+div.tableArea {
+  margin: 10px;
+}
+
+table.robotTeamTable {
+  margin-left: auto; margin-right: auto;
+  border-collapse: collapse;
+  padding: 12px;
+  border-style: hidden;
+  position: relative;
+}
+
+table.robotTeamTable th {
+  background-color: #20314c;
+  text-align: center;
+  color: white;
+  font-size: 17px;
+  font-family: Arial;
+}
+
+table.robotTeamTable tr {
+  background-color: #444444;
+  color: white;
+  font-size: 13px;
+  font-family: Arial;
+}
+
+table.robotTeamTable tr:nth-child(even){
+  background-color: #686868;
+}
+
+table.robotTeamTable tr:hover {
+  background-color: #333;
+  color: white;
+}
+
+table.robotTeamTable td, table.robotTeamTable th{
+  padding-top: 12px; padding-bottom: 12px;
+  padding-left: 24px; padding-right: 24px;
+  border: 1px solid #777;
+  border-radius: 0px;
+}
+
+/*
+ Modal Boxes
+*/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal_content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

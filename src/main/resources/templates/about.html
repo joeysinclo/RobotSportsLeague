@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body>
@@ -23,8 +24,10 @@
 
         <div id="about_body" class="body">
             <p>List about page details here</p>
+            <form th:method="get" th:object="${text}">
+                <span th:text="${text}">CUSTOM TEXT</span>
+            </form>
         </div>
-
         <footer id="about_footer" class="footer">
             <p>Jordan Sinclair, &copy;2019 </p>
         </footer>

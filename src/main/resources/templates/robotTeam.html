@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Robot Teams</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body>
@@ -25,10 +26,169 @@
             <p>Create, modify, or delete teams here</p>
         </div>
 
+        <div class="tableArea">
+            <table id="table" class="robotTeamTable">
+                <thead id="tableHeader" class="tableHeader">
+                <tr>
+                    <th>Team Name</th>
+                    <th>Owner</th>
+                    <th>Date Created</th>
+                    <th>Edit/Delete</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody" class="tableBody">
+                <tr th:each="team : ${teams}" class="tableRow" onclick="edit(this)">
+                    <td class="teamNameCell" th:value="${team.teamName}">
+                        <span class="teamName" th:value="${team.teamName}" th:text="${team.teamName}"></span>
+                    </td>
+                    <td th:value="${team.ownerFirstName} + ' ' + ${team.ownerLastName}">
+                        <span class="ownerFirstName" th:value="${team.ownerFirstName}" th:text="${team.ownerFirstName}"></span>
+                        <span class="ownerLastName" th:value="${team.ownerLastName}" th:text="${team.ownerLastName}"></span>
+                    </td>
+                    <td th:value="${team.createDate}">
+                        <span class="teamCreateDate" th:value="${team.createDate}" th:text="${team.createDate}"></span>
+                    </td>
+                    <td th:value="edit_ + ${team.teamName}" class="editTableRowCell">
+                        <button id="editTeamButton" class="editRowButton" type="button">Edit</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="robotTeam_buttons">
+            <button id="createTeamButton" class="button" type="button">Create New Team</button>
+        </div>
+
         <footer id="robotTeam_footer" class="footer">
             <p>Jordan Sinclair, &copy;2019 </p>
         </footer>
-    </div>
 
+        <!--Create Team Form-->
+        <form method="post" th:object="${robotTeam}" action="#" th:action="@{/robotTeam}">
+        <div id="createTeamInput" class="modal">
+                <div class="modal_content">
+                    <span id="close_create_team_input_button" class="close">&times;</span>
+                    <header>
+                        <h2>Create your team</h2>
+                    </header>
+                    <div>
+                        <h3>Team</h3>
+                    </div>
+                    <div>
+                        Team Name: <input class="teamNameInput" type="text" id="createTeamNameInput" th:field="*{teamName}">
+                    </div>
+                    <div>
+                        <h3>Team Owner</h3>
+                    </div>
+                    <div class="fullNameInput">
+                        <div class="firstNameInput">
+                            First Name: <input type="text" id="createFirstNameInput" th:field="*{ownerFirstName}">
+                        </div>
+                        <div class="lastNameInput">
+                            Last Name: <input type="text" id="createLastNameInput" th:field="*{ownerLastName}">
+                        </div>
+                    </div>
+                    <div class="submitButton">
+                        <button id="createInputButton" class="button" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Confirmation modal -->
+            <div id="createTeamConfirmation" class="modal">
+                <div class="modal_content">
+                    <span id="close_create_confirmation_button" class="close">&times;</span>
+                    <header>
+                        <h2>Create your team</h2>
+                    </header>
+                    <div>
+                        <h3>Team Name</h3>
+                    </div>
+                        <span id="createTeamNameValue">{teamName}</span>
+                    <div>
+                        <h3>Team Owner</h3>
+                    </div>
+                    <div class="fullNameValue">
+                        <div class="firstNameValue">
+                            First Name: <span id="createFirstNameValue">{firstName}</span>
+                        </div>
+                        <div class="lastNameValue">
+                            Last Name: <span id="createLastNameValue">{lastName}</span>
+                        </div>
+                    </div>
+                    <div class="confirmButton">
+                        <button id="createConfirmButton" class="button" type="submit">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--Edit Team Form-->
+        <form method="post" th:object="${robotTeam}" action="#" th:action="@{/robotTeam/editRobotTeam}">
+            <input type="hidden" name="_method" value="put"/>
+            <input type="hidden" th:field="*{id}"/>
+            <div id="editTeamInput" class="modal">
+                <div class="modal_content">
+                    <span id="close_edit_team_input_button" class="close">&times;</span>
+                    <header>
+                        <h2>Modify your team</h2>
+                    </header>
+                    <div>
+                        <h3>Team</h3>
+                    </div>
+                    <div>
+                        Team Name: <input class="edit_teamNameInput" type="text" id="editTeamNameInput" th:field="*{teamName}">
+                    </div>
+                    <div>
+                        <h3>Team Owner</h3>
+                    </div>
+                    <div class="fullNameInput">
+                        <div class="firstNameInput">
+                            First Name: <input class="edit_firstNameInput" type="text" id="editFirstNameInput" th:field="*{ownerFirstName}">
+                        </div>
+                        <div class="lastNameInput">
+                            Last Name: <input class="edit_lastNameInput" type="text" id="editLastNameInput" th:field="*{ownerLastName}">
+                        </div>
+                    </div>
+                    <div class="submitButton">
+                        <button id="editInputButton" class="button" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Confirmation modal -->
+            <div id="editTeamConfirmation" class="modal">
+                <div class="modal_content">
+                    <span id="close_edit_confirmation_button" class="close">&times;</span>
+                    <header>
+                        <h2>Create your team</h2>
+                    </header>
+                    <div>
+                        <h3>Team Name</h3>
+                    </div>
+                    <span id="editTeamNameValue">{teamName}</span>
+                    <div>
+                        <h3>Team Owner</h3>
+                    </div>
+                    <div class="fullNameValue">
+                        <div class="firstNameValue">
+                            First Name: <span id="editFirstNameValue">{firstName}</span>
+                        </div>
+                        <div class="lastNameValue">
+                            Last Name: <span id="editLastNameValue">{lastName}</span>
+                        </div>
+                    </div>
+                    <div class="confirmButton">
+                        <button id="editConfirmButton" class="button" type="submit">Confirm</button>
+                        <!--<a th:href="@{'/robotTeam/editRobotTeam' + *{id}">-->
+                            <!--<span id="editConfirmButton" class="button">Edit</span>-->
+                        <!--</a>-->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="/js/robotTeam.js"></script>
 </body>
 </html>

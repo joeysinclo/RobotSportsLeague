@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/robotTeammates")
-public class RobotTeammates {
+public class RobotTeammatesController {
 
     @GetMapping
     public String robotTeammates(){
